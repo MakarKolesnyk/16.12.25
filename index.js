@@ -1,17 +1,19 @@
-const bigImg = document.getElementById('big')
+const tasks = document.getElementsByClassName('task')
 
-const smallImgs = document.getElementsByClassName('small')
-
-for (const smallImg of smallImgs) {
-  smallImg.addEventListener('click', ()=>{
-    bigImg.src = smallImg.src
+for (const task of tasks) {
+  task.addEventListener('click', ()=>{
+  if (confirm('Do you want to delete?')) {
+      task.style.display = 'none'
+  }
   })
 }
 
-const lisFruites = document.getElementsByTagName('li')
+const btns = document.getElementsByClassName('btn')
+const block = document.getElementById('block')
 
-for (const fruite of lisFruites) {
-  fruite.addEventListener('click', ()=>{
-      fruite.style.backgroundColor = fruite.style.backgroundColor ==='pink' ? '' : 'pink'
+for (const btn of btns) {
+  btn.style.backgroundColor = btn.textContent;
+  btn.addEventListener('click', ()=>{
+    block.style.backgroundColor = btn.textContent;
   })
 }
