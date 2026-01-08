@@ -1,5 +1,17 @@
-.heading{
-    color: pink;
+img{
+    object-fit: cover;
+}
+
+.galerry{
     text-align: center;
-    background-color: black;
+}
+
+.small{
+    width: 50px;
+    height: 50px;
+}
+
+.big{
+    width: 500px;
+    height: 500px;
 }
