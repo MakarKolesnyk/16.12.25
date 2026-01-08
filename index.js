@@ -7,3 +7,11 @@ for (const smallImg of smallImgs) {
     bigImg.src = smallImg.src
   })
 }
+
+const lisFruites = document.getElementsByTagName('li')
+
+for (const fruite of lisFruites) {
+  fruite.addEventListener('click', ()=>{
+      fruite.style.backgroundColor = fruite.style.backgroundColor ==='pink' ? '' : 'pink'
+  })
+}
