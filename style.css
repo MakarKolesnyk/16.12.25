@@ -1,13 +1,18 @@
-.btn {
-    font-size: 20px;
-    color: violet;
-    border: none;
+img{
+    width: 100%;
+    height: 100%;
 }
 
-.active{
-    background-color: pink;
+.hide{
+    display: none;
 }
 
-.shadow{
-    box-shadow: inset 1px 1px 3px black;
+.dark{
+    background-color: black;
+    color: white;
+}
+
+button{
+    background-color: inherit;
+    color: inherit;
 }

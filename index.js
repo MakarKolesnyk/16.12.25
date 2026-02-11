@@ -1,18 +1,15 @@
+const btn = document.querySelector('#block > button')
+console.dir(btn)
 
-const btns = document.querySelectorAll('button')
+const img = document.querySelector('#block > img')
 
-// classList
+btn.addEventListener('click', ()=>{
+  img.classList.toggle('hide')
+  btn.textContent=btn.textContent==='show picture'?'hide picture' : 'show picture'
+})
 
-for (const btn of btns) {
-  // console.dir(btn.classList)
-  btn.classList.add('btn');
-  btn.addEventListener('mouseenter', ()=>{
-    btn.classList.add('active')
-  })
-  btn.addEventListener('mouseout', ()=>{
-    btn.classList.remove('active')
-  })
-  btn.addEventListener('click', ()=>{
-    btn.classList.toggle('shadow')
-  })
-}
+const btnTheme = document.querySelector('button:first-of-type')
+btnTheme.addEventListener('click', ()=>{
+  btnTheme.textContent = btnTheme.textContent === 'light'?'dark':'light'
+  document.body.classList.toggle('dark')
+})
