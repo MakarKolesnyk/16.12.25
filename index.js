@@ -12,4 +12,7 @@ for (const btn of btns) {
   btn.addEventListener('mouseout', ()=>{
     btn.classList.remove('active')
   })
+  btn.addEventListener('click', ()=>{
+    btn.classList.toggle('shadow')
+  })
 }
