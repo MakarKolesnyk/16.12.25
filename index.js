@@ -1,10 +1,23 @@
 const wrapper = document.getElementById("wrapper");
-const btn = document.getElementById("btn");
-wrapper.addEventListener("click", (event) => {
-  console.log("click wrapper");
-  event.target.style.color = "red";
-});
-btn.addEventListener("click", (event) => {
-  event.stopPropagation();
-  console.log("click btn");
+const block = document.getElementById("block");
+
+// wrapper.addEventListener('mousemove', (event)=>{
+// block.style.left = event.clientX + 'px'
+// block.style.top = event.clientY + 'px'
+// })
+
+window.addEventListener("keydown", (event) => {
+  console.log(event);
+  if (event.key === "ArrowRight") {
+    console.log("Right");
+  }
+  if (event.key === "ArrowLeft") {
+    console.log("Left");
+  }
+  if (event.key === "ArrowUp") {
+    console.log("UP");
+  }
+  if (event.key === "ArrowDown") {
+    console.log("down");
+  }
 });
