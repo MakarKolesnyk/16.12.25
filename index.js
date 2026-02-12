@@ -1,27 +1,19 @@
-const products = document.querySelectorAll('#shop .product');
-const check = document.querySelector('#shop h1 span');
+const root = document.getElementById('root')
+console.dir(root)
 
-products.forEach((product) => {
-  if(product.dataset.category === 'fruits&vegatebles')
-    product.style.backgroundColor='green'
-});
+const h1 = document.createElement('h1')
+h1.textContent='i create h1'
+h1.classList.add('heading')
+h1.addEventListener('click', ()=>{
+    h1.style.color='red'
+})
 
-let summa = 0;
-check.textContent = summa;
+const btn = document.createElement('button')
+btn.textContent='click me'
 
-const addToCart = (event) => {
-  summa += Number(event.currentTarget.dataset.price);
+const em = document.createElement('em')
+em.textContent="!!!!"
 
-  if (summa > 30) {
-    alert(' ви перевищили ліміт на картці ');
-    event.currentTarget.removeEventListener('click', addToCart);
-    return;
-  }
+h1.append(em)
 
-  event.currentTarget.style.backgroundColor = 'pink';
-  check.textContent = summa;
-};
-
-products.forEach((product) => {
-  product.addEventListener('click', addToCart);
-});
+root.append(h1, btn)
