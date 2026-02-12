@@ -1,32 +1,27 @@
-const wrapper = document.getElementById("wrapper");
-const block = document.getElementById("block");
+const products = document.querySelectorAll('#shop .product');
+const check = document.querySelector('#shop h1 span');
 
-// wrapper.addEventListener('mousemove', (event)=>{
-// block.style.left = event.clientX + 'px'
-// block.style.top = event.clientY + 'px'
-// })
+products.forEach((product) => {
+  if(product.dataset.category === 'fruits&vegatebles')
+    product.style.backgroundColor='green'
+});
 
-let x = 0;
-let y = 0;
-const step = 5;
+let summa = 0;
+check.textContent = summa;
 
-window.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowRight") {
-    console.log("Right");
-    x += step;
+const addToCart = (event) => {
+  summa += Number(event.currentTarget.dataset.price);
+
+  if (summa > 30) {
+    alert(' ви перевищили ліміт на картці ');
+    event.currentTarget.removeEventListener('click', addToCart);
+    return;
   }
-  if (event.key === "ArrowLeft") {
-    console.log("Left");
-    x -= step;
-  }
-  if (event.key === "ArrowUp") {
-    console.log("UP");
-    y -= step;
-  }
-  if (event.key === "ArrowDown") {
-    console.log("down");
-    y += step;
-  }
-  block.style.left = x + 'px'
-  block.style.top = y + 'px'
+
+  event.currentTarget.style.backgroundColor = 'pink';
+  check.textContent = summa;
+};
+
+products.forEach((product) => {
+  product.addEventListener('click', addToCart);
 });
