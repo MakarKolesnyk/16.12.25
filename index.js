@@ -1,25 +1,13 @@
-const user = {
-  login: 'fred',
-  email: 'fred@gmail.com',
-  age: 23,
-  isMale: true,
-  sayHi() {
-    return 'hi, my login ' + this.login;
-  },
-  hobbies: ['sport', 'game'],
-  address: {
-    town: 'Zp',
-    street: 'Qwerty'
-  },
-  property: undefined, // в json не попадают!!!
-  description: null
-};
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then((response) => response.json())
+  .then((data) => {
+    console.table(data);
+  })
+  .catch((err) => console.log(err));
 
-console.log(user.sayHi());
-
-const userInJson = JSON.stringify(user);
-console.log(userInJson);
-
-const jsonUser =`{"login":"fred","email":"fred@gmail.com","age":23,"isMale":true,"hobbies":["sport","game"],"address":{"town":"Zp","street":"Qwerty"},"description":null}`
-const task = JSON.parse(jsonUser)
-console.log(task);
+fetch("https://jsonplaceholder.typicode.com/users/1")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => console.log(err));
