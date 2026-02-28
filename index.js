@@ -1,22 +1,25 @@
-const root = document.getElementById("root");
+const user = {
+  login: 'fred',
+  email: 'fred@gmail.com',
+  age: 23,
+  isMale: true,
+  sayHi() {
+    return 'hi, my login ' + this.login;
+  },
+  hobbies: ['sport', 'game'],
+  address: {
+    town: 'Zp',
+    street: 'Qwerty'
+  },
+  property: undefined, // в json не попадают!!!
+  description: null
+};
 
-function loadImage(path, alt) {
-  const img = new Image();
-  img.src = path;
-  return new Promise((resolve, reject) => {
-    img.addEventListener("load", () => {
-      img.alt = alt;
-      resolve(img);
-    });
-    img.addEventListener("error", () => {
-      reject(new Error("invalid path"));
-    });
-  });
-}
+console.log(user.sayHi());
 
-const path =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxtoCi5Sk0757RBeAVKwnB9FMGC58hxGGoAw&s";
-const alt = "sea";
-loadImage(path, alt)
-  .then((pic) => root.append(pic))
-  .catch((err) => root.append(err.message));
+const userInJson = JSON.stringify(user);
+console.log(userInJson);
+
+const jsonUser =`{"login":"fred","email":"fred@gmail.com","age":23,"isMale":true,"hobbies":["sport","game"],"address":{"town":"Zp","street":"Qwerty"},"description":null}`
+const task = JSON.parse(jsonUser)
+console.log(task);
