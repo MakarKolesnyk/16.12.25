@@ -1,19 +1,22 @@
-const  myPromise =  new Promise((rosolve, reject)=>{
-  const random = Math.random()
-  if(random>0.5){
-    rosolve("all Good random = " + random)
-  } else {
-    reject("error random = " + random)
-  }
-});
+const root = document.getElementById("root");
 
-myPromise
-.then((response)=>{
-  console.log(response);
-})
-.catch((err)=>{
-  console.log(err);
-})
-.finally(()=>{
-  console.log("Finally");
-})
+function loadImage(path, alt) {
+  const img = new Image();
+  img.src = path;
+  return new Promise((resolve, reject) => {
+    img.addEventListener("load", () => {
+      img.alt = alt;
+      resolve(img);
+    });
+    img.addEventListener("error", () => {
+      reject(new Error("invalid path"));
+    });
+  });
+}
+
+const path =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxtoCi5Sk0757RBeAVKwnB9FMGC58hxGGoAw&s";
+const alt = "sea";
+loadImage(path, alt)
+  .then((pic) => root.append(pic))
+  .catch((err) => root.append(err.message));
